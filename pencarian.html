@@ -1,0 +1,170 @@
+<!-- <?php 
+include ("../database/mydb.php");
+
+$keyword = htmlspecialchars($_GET['keyword']);
+$query = $con->query("SELECT * FROM remaching JOIN cabang ON remaching.id_cabang=remaching.id_cabang WHERE remaching.no_polisi LIKE '%$keyword%'");
+$uploads = mysqli_fetch_array($query);
+if($uploads) {
+  echo "<script>alert('data ditemukan')</script>"; 
+}else{
+  echo "<script>alert('data tidak ditemukan/nomor polisi salah')</script>";
+  echo "<script>location='index.php?halaman=halamanutama';</script>";
+}
+
+// SELECT * FROM data WHERE no_polisi LIKE '%$keyword%'
+
+?> -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
+    
+    <link rel="stylesheet" href="pencarian.css">
+
+    <title>PERINTIS</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+          <a class="navbar-brand" href="#">Aplikasi Remaching</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.php?halaman=home">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.php?halaman=cekhasil&no_polisi=<?php echo $uploads['no_polisi']; ?>">Cek hasil pengecekan</a>
+              </li>
+              
+          </div>
+        </div>
+      </nav>
+      <br>
+      <div class="container">
+        <div class="konten">
+            <div class="body">
+                <div class="header-palingatas">
+                    <div class="container">
+                        <div class="text-header">
+                            <P style="text-align: left;">PRE CHECK</P>
+                            <p><?=  $uploads['no_polisi'];?></p>
+                           
+                        </div>  
+                    </div>
+                  <div class="logoheader"> 
+                  <img src="../adminpage/logo/<?php echo $uploads['logo']; ?>" alt="logo" width="110px">
+                  </div>
+                   
+                </div>
+                    <div class="headerbawah">
+                        <div class="container">
+                        <p class="alamat" ><b> <?= $uploads['alamat']?>
+                        </b></p>
+                        </div>
+                    </div>
+                    <div class="container">
+                      <div class="column">
+                          <img  src="<?=  $uploads['imageB'];?>"  height="50px" alt="image" />
+                          <div class="text" style="font-size: 8px;">
+                              <center><b>Disc kanan</b></center>
+                          </div>
+                          <img  src="<?=  $uploads['imageD'];?>"  height="50px"  alt="image"/>
+                          <div class="text" style="font-size: 8px;">
+                              <center><b>Tampak depan</b></center>
+                          </div>
+                        </div>
+                        <div class="column">
+                          <!-- <img  src="<?=  $uploads['imageA'];?>"  height="120px" alt="image" />
+                          <div class="text" style="font-size: 8px;">
+                              <center><b>Foto tampak depan</b></center>
+                          </div> -->
+                          <img  src="<?=  $uploads['imageC'];?>"  height="120px" alt="image" />
+                          <div class="text" style="font-size: 8px;">
+                              <center><b>Disc kiri</b></center>
+                          </div>
+                        </div>
+                  </div>
+                 
+                   <div class="container">
+                    <div class="model">
+                      <br>
+                        <div class="mobil">
+                          &ensp;<img src="../remaching/<?=  $uploads['imageA'];?>" width="98px" height="36px"/>
+                      </div>
+                      <div class="tanggal">
+                        <br>
+                        <?= date("d-m-Y",strtotime($uploads['tanggal']	)); ?>
+                      </div><br>
+                        <dl>
+                          <dt>&ensp;Teknisi&emsp;&ensp;:&ensp;<?=  $uploads['teknisi'];?></dt>
+                          <dt>&ensp;Nama SA&nbsp;&nbsp;:&ensp;<?=  $uploads['nama_sa'];?></dt>
+                          <dt>&ensp;Model &emsp;&ensp;&nbsp;:&nbsp;&nbsp;<?=  $uploads['type'];?></dt>
+                          <dt>&ensp;KM&emsp; &ensp; &ensp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;<?=  $uploads['kilometer'];?> </dt>
+                        </dl>
+                        </div>
+                        
+                        
+                        <div class="pengecekan">
+                          <div class="box">
+                          <dl>
+                            
+                            <dt>&ensp;Hasil Pemeriksaan :&ensp;<?= $uploads['hasil'] ?> </dt>
+                            <dt>&ensp;Keterangan :&ensp;<?= $uploads['ket'] ?> </dt>
+                          </dl>
+                          </div>
+                          </div>
+                          <br>
+                <div class="hasil">
+                    <div class="iconhasil">
+                       <i class="bi bi-card-list"></i>
+                    </div> 
+                    <div class="hasiltext">
+                    <dl>
+                        <dt>&emsp; SARAN PERBAIKAN</dt>
+                        <dt>&emsp; <?= $uploads['saran'] ?></dt>
+                       
+                        <!-- <dt>&emsp; Perawatan &ensp;:<?=  $uploads['perawatan'];?></dt> -->
+                        
+                    </dl>
+                  </div> 
+                  </div>
+                  <br><br><br>
+                  
+              </div>
+              <div class="footer">
+                <div class="text-footer">
+                    <p>Perawatan disc brake dan teknologi canggih</p>
+                </div>
+                  <div class="shape">
+                      <div class="logo-footer">
+                        <i><p>&ensp;&ensp;&ensp;powered by: WAS</p></i>
+                      </div>
+                 
+                   
+                  </div>
+              </div>
+              <div class="footer-palingbawah">
+
+              </div>
+            </div>  
+        </div>
+        
+      </div>
+     
+   
+
+
+
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  </body>
+</html>

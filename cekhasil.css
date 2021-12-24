@@ -1,0 +1,233 @@
+body{
+    @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+    font-family: 'Rubik', sans-serif;
+    background: whitesmoke;
+}
+
+
+.konten{
+    @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css");
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+  } 
+   
+    /* background: linear-gradient(#00C6FF, #0078FF); */
+  
+  .body{
+    width: 425px;
+    height: 367px;
+    background: #fff;
+    border-radius: 5px;
+    transition: height 0.2s ease;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+    
+    
+  }
+.header-palingatas{
+    width:100%;
+    height:50px;
+    background-color: #ff1100;
+    text-align: right;
+}
+.text-header{
+    float: right;
+    color: white;
+    padding-top: 12px;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 5px;
+}
+
+.logoheader{
+    width:125px;
+    height:50px;
+    background-color: white;
+    border-bottom-right-radius: 20px;
+    padding-top: 10px;
+    padding-right: 3px;
+    color: #0078FF;
+}
+
+.alamat{
+  color: white;
+  font-size: 5px;
+}
+.headerbawah{
+    width:100%;
+    height:20px;
+    background-color:  #191970;
+    line-height: 20px;
+    font-size: 10px;
+}
+.column {
+    max-width: 100%;
+    padding: 0 3px;
+    float: right;
+    
+  }
+  
+  .column img {
+    margin-top: 11px;
+    display: flex;
+    width: 100%;
+    width: 80px;
+    height: 80px;
+    border: 1px solid #191970;
+  
+  }
+  .model {
+    color:  #191970;
+    font-weight: bold;
+    font-size: 11px;
+    text-align: start;
+  }
+  .box{
+  
+    font-size: 10px;
+    color:  green;
+    /* border: 1px solid;
+    max-width: 30%;
+    border-radius: 5px; */
+   
+  }
+  label{
+    font-size: 10px;
+    font-weight: bold;
+    color:  #191970;
+  }
+  .normal{
+    font-size: 8px;
+    color: green;
+  }
+  .cekfilter{
+    font-size: 10px;
+    color:  #191970;
+  }
+  .hasiltext{
+    font-size: 7px;
+    color:  #191970;
+    
+    
+  }
+  .iconhasil{       
+    color: white;
+    font-size: 18px;
+    align: left;
+    text-align: center;
+    background-color: #0078FF; 
+    border-radius: 8px; 
+    width: 34px;
+    height: 28px;
+    float:left;
+       }
+  .hasil{
+    padding: 10px;
+    border: 2px solid;
+    color:  #0078FF;
+    border: 1px solid;
+    width: 60%;
+    height: 60px;
+    border-radius: 8px;
+    float:left;
+    
+  }
+  .footer{
+      width: 100%;
+      height:20px;
+     background-color: darkgray;
+     font-size: 8px;
+    
+
+  }
+  .footer-palingbawah{
+    width: 100%;
+    height:5px;
+   background-color: red;
+
+}
+.shape{
+   
+    width:100px;
+    height:20px;
+    background-color: red;
+    border-top-left-radius: 15px;
+    float: right;
+    line-height: 20px;
+}
+.text-footer{
+    font-family: 'Work Sans', sans-serif;
+    float: left;
+    font-weight: bold;
+    padding-left: 20px;
+    color: #191970;
+    padding-top: 12px;
+    font-weight: bold;
+    font-size: 8px;
+    padding-top: 5px;
+}
+
+.logo-footer{
+    font-size: 7px;
+    line-height: 20px;
+    color:white;
+    float:left;
+    padding-left: 15px;
+}
+.float{
+  position: absolute;
+  padding-top: 20px;
+  padding-left: 50px;
+  align-items: center;
+  font: bold italic 10px sans-serif;
+  color: red;
+  
+}
+.boxfloat{
+  padding-top: 20px;
+  padding-left: 35px;
+  float:left;
+  color: red;
+  font-size: 10px;
+}
+.hasiltext2{
+    font-size: 7px;
+    color:  #191970;
+    
+    
+  }
+  .iconhasil2{       
+      
+    color: white;
+    font-size: 18px;
+    align: left;
+    text-align: center;
+    background-color: #00FF00; 
+    border-radius: 8px; 
+    width: 34px;
+    height: 28px;
+    float:left;
+       }
+  .hasil2{
+    padding: 10px;
+    border: 2px solid;
+    color:  #00FF00;
+    border: 1px solid;
+    width: 39%;
+    height: 60px;
+    border-radius: 8px;
+    float:right;
+    
+  }
+  .saranvendor{
+    width: 100%;
+    height:20px;
+   background-color: red;
+   border-radius: 4px;
+}
+.catatanvendor{
+    font-size: 10px;
+    color: white;
+    line-height: 20px;
+}

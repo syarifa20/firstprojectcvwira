@@ -1,0 +1,163 @@
+<!-- <?php 
+include ("../database/mydb.php");
+
+// $keyword = $_GET['keyword'];
+
+$query = $con->query("SELECT * FROM remaching JOIN cabang ON remaching.id_cabang=cabang.id_cabang JOIN remaching_selesai ON remaching.id_remaching=remaching_selesai.id_remaching where remaching.no_polisi='$_GET[no_polisi]'");
+$uploads = mysqli_fetch_array($query);
+
+echo "<script>location='index.php?halaman=cekhasil&no_polisi='$_GET[no_polisi]';</script>";
+if($uploads['status']=="selesai") {
+  echo "<script>location='index.php?halaman=cekhasil&no_polisi='$_GET[no_polisi]';</script>";
+}else{
+  header('location:index.php?halaman=message');
+}
+
+
+// SELECT * FROM data WHERE no_polisi LIKE '%$keyword%'
+
+?>    -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
+    
+    <link rel="stylesheet" href="cekhasil.css">
+
+    <title>ASTRA</title>
+  </head>
+  <body>
+                <div class="header-palingatas">
+                    <div class="container">
+                        <div class="text-header">
+                            <P style="text-align: left;">POST CHECK</P>
+                            <p><?=  $uploads['no_polisi'];?></p>
+                           
+                        </div>  
+                    </div>
+                  <div class="logoheader"> 
+                  <img src="../adminpage/logo/<?php echo $uploads['logo']; ?>" alt="logo" width="110px">
+                  </div>
+                   
+                </div>
+                    <div class="headerbawah">
+                        <div class="container">
+                        <p class="alamat" ><b><?php echo $uploads['alamat']; ?>
+                        </b></p>
+                        </div>
+                    </div>
+                    <div class="container">
+                      <div class="column">
+                          <img  src="<?=  $uploads['imageB'];?>"  height="50px" alt="image" />
+                          <div class="text" style="font-size: 8px;">
+                              <center><b>Disc kanan</b></center>
+                          </div>
+                          <img  src="<?=  $uploads['imageD'];?>"  height="50px"  alt="image"/>
+                          <div class="text" style="font-size: 8px;">
+                              <center><b>Tampak depan</b></center>
+                          </div>
+                        </div>
+                        <div class="column">
+                          <!-- <img  src="<?=  $uploads['imageA'];?>"  height="120px" alt="image" />
+                          <div class="text" style="font-size: 8px;">
+                              <center><b>Foto tampak depan</b></center>
+                          </div> -->
+                          <img  src="<?=  $uploads['imageC'];?>"  height="120px" alt="image" />
+                          <div class="text" style="font-size: 8px;">
+                              <center><b>Disc kiri</b></center>
+                          </div>
+                        </div>
+                  </div>
+                    <div class="container">
+                        <div class="model">
+                          <br>
+                            <div class="mobil">
+                              &ensp;<img src="../remaching/<?=  $uploads['imageA'];?>" width="98px" height="36px"/>
+                          </div>
+                          <div class="tanggal">
+                            <br>
+                            <?= date("d-m-Y",strtotime($uploads['tanggal']	)); ?>
+                          </div><br>
+                            <dl>
+                              <dt>&ensp;Teknisi&emsp;&ensp;:&ensp;<?=  $uploads['teknisi'];?></dt>
+                              <dt>&ensp;Nama SA&nbsp;&nbsp;:&ensp;<?=  $uploads['nama_sa'];?></dt>
+                              <dt>&ensp;Model &emsp;&ensp;&nbsp;:&nbsp;&nbsp;<?=  $uploads['type'];?></dt>
+                              <dt>&ensp;KM&emsp; &ensp; &ensp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;<?=  $uploads['kilometer'];?> </dt>
+                            </dl>
+                            </div>
+                            
+                            <div class="pengecekan">
+                                <div class="box">
+                                <dl>
+                                  
+                                  <dt>&ensp;Hasil Pemeriksaan :&ensp;<?= $uploads['hasil'] ?> </dt>
+                                  <dt>&ensp;Keterangan :&ensp;<?= $uploads['ket'] ?> </dt>
+                                </dl>
+                                </div>
+                                </div>
+                <div class="hasil">
+                    <div class="iconhasil">
+                       <i class="bi bi-card-list"></i>
+                    </div> 
+                    <div class="hasiltext">
+                    <dl>
+                        <dt>&emsp;HASIL PEKERJAAN</dt>
+                        <p style="font-size:6px;">
+                        &emsp;&ensp; <?=  $uploads['hasil_pekerjaan'];?> 
+                        </p>
+                       
+                    </dl>
+                  </div> 
+                  </div>
+                  <div class="hasil2">
+                    <div class="iconhasil2">
+                       <i class="bi bi-card-list"></i>
+                    </div> 
+                    <div class="hasiltext2">
+                    <dl>
+                        <dt>&emsp; CATATAN PERBAIKAN</dt>
+                        <p style="font-size:6px;">
+                        &emsp;&ensp; <?=  $uploads['catatan'];?> 
+                        </p>
+                        
+                    </dl>
+                  </div> 
+                  </div>
+                 <!-- <div class="estimasi">
+                   <p>Status : clear</p>
+                 </div> -->
+                  <br><br><br>
+                 
+                  
+              </div>
+            <br>
+              <div class="footer">
+                <div class="text-footer">
+                    <p>Perawatan disc brake dan teknologi canggih</p>
+                </div>
+                  <div class="shape">
+                      <div class="logo-footer">
+                        <i><p>&ensp;&ensp;&ensp;powered by: WAS</p></i>
+                      </div>
+                 
+                   
+                  </div>
+              </div>
+              <div class="footer-palingbawah">
+
+              </div>
+           
+   
+
+
+
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  </body>
+</html>
